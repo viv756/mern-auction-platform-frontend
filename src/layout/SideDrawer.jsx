@@ -1,4 +1,3 @@
-import { logout } from "@/store/slices/userSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -12,6 +11,8 @@ import { SiGooglesearchconsole } from "react-icons/si";
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
+import { logout } from "@/store/slices/userSlice";
+import CustomLink from "@/components/CustomLink";
 
 const SideDrawer = () => {
   const [show, setShow] = useState(false);
@@ -41,51 +42,30 @@ const SideDrawer = () => {
           </Link>
           <ul className="flex flex-col gap-3">
             <li>
-              <Link
-                to={"/auctions"}
-                className="flex text-xl font-semibold gap-2 items-center hover:text-[#D6482b] hover:transition-all hover:duration-150">
-                <RiAuctionFill /> Auctions
-              </Link>
+              <CustomLink navLink={"/auctions"} icon={<RiAuctionFill />} title={"Auctions"} />
             </li>
             <li>
-              <Link
-                to={"/leaderboard"}
-                className="flex text-xl font-semibold gap-2 items-center hover:text-[#D6482b] hover:transition-all hover:duration-150">
-                <MdLeaderboard /> Leaderboard
-              </Link>
+              <CustomLink navLink={"/leaderboard"} icon={<MdLeaderboard />} title={"Leaderboard"} />
             </li>
             {isAuthenticated && user && user.role === "Auctioneer" && (
               <>
                 <li>
-                  <Link
-                    to={"/submit-commission"}
-                    className="flex text-xl font-semibold gap-2 items-center hover:text-[#D6482b] hover:transition-all hover:duration-150">
-                    <FaFileInvoiceDollar /> Submit Commission
-                  </Link>
+                  <CustomLink navLink={"/submit-commission"} icon={<FaFileInvoiceDollar />} title={"Submit Commission"}
+                  />
                 </li>
                 <li>
-                  <Link
-                    to={"/create-auction"}
-                    className="flex text-xl font-semibold gap-2 items-center hover:text-[#D6482b] hover:transition-all hover:duration-150">
-                    <IoIosCreate /> Create Auction
-                  </Link>
+                  <CustomLink navLink={"/create-auction"}  icon={<IoIosCreate />} title={"Create Auction"}
+                  />
                 </li>
                 <li>
-                  <Link
-                    to={"/view-my-auctions"}
-                    className="flex text-xl font-semibold gap-2 items-center hover:text-[#D6482b] hover:transition-all hover:duration-150">
-                    <FaEye /> View My Auctions
-                  </Link>
+                  <CustomLink navLink={"/view-my-auctions"} icon={<FaEye />} title={"View My Auctions"}
+                  />
                 </li>
               </>
             )}
             {isAuthenticated && user && user.role === "Super Admin" && (
               <li>
-                <Link
-                  to={"/dashboard"}
-                  className="flex text-xl font-semibold gap-2 items-center hover:text-[#D6482b] hover:transition-all hover:duration-150">
-                  <MdDashboard /> Dashboard
-                </Link>
+                <CustomLink navLink={"/dashboard"} icon={<MdDashboard />} title={"Dashboard"} />
               </li>
             )}
           </ul>
@@ -116,18 +96,11 @@ const SideDrawer = () => {
           <hr className="mb-4 border-t-[#d6482b]" />
           <ul className="flex flex-col gap-3">
             <li>
-              <Link
-                to={"/how-it-works-info"}
-                className="flex text-xl font-semibold gap-2 items-center hover:text-[#D6482b] hover:transition-all hover:duration-150">
-                <SiGooglesearchconsole /> How it works
-              </Link>
+              <CustomLink navLink={"/how-it-works-info"} icon={<SiGooglesearchconsole />} title={"How it works"}
+              />
             </li>
             <li>
-              <Link
-                to={"/about"}
-                className="flex text-xl font-semibold gap-2 items-center hover:text-[#D6482b] hover:transition-all hover:duration-150">
-                <BsFillInfoSquareFill /> About Us
-              </Link>
+              <CustomLink navLink={"/about"} icon={<BsFillInfoSquareFill />} title={"About Us"} />
             </li>
           </ul>
           <IoMdCloseCircleOutline

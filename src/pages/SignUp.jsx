@@ -1,8 +1,8 @@
-import H1 from "@/components/H1";
-import { register } from "@/store/slices/userSlice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import H1 from "@/components/H1";
+import { register } from "@/store/slices/userSlice";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -153,10 +153,10 @@ const SignUp = () => {
                   className="text-[16px] py-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none sm:flex-1"
                   disabled={role === "Bidder"}>
                   <option value="">Select Your Bank</option>
-                  <option value="Meezan Bank">Federal Bank</option>
-                  <option value="UBL">ICCI Bank</option>
-                  <option value="HBL">SBI Bank</option>
-                  <option value="Allied Bank">AXIS bank</option>
+                  <option value="Federal Bank">Federal Bank</option>
+                  <option value="ICCI">ICCI Bank</option>
+                  <option value="SBI">SBI Bank</option>
+                  <option value="AXIS Bank">AXIS bank</option>
                 </select>
                 <input
                   type="text"
