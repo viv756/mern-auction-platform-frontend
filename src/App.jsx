@@ -1,5 +1,8 @@
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
+import { fetchUser } from "./store/slices/userSlice";
 import SideDrawer from "./layout/SideDrawer";
 import Home from "./pages/Home";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,6 +11,12 @@ import Login from "./pages/Login";
 import SubmitCommission from "./pages/SubmitCommission";
 
 const App = () => {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, []);
+
   return (
     <BrowserRouter>
       <SideDrawer />
