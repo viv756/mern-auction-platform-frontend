@@ -1,21 +1,9 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import H1 from "@/components/H1";
+import { howItWorks } from "@/lib/constants";
 
 const Home = () => {
-  const howItWorks = [
-    { title: "Post Items", description: "Auctioneer posts items for bidding." },
-    { title: "Place Bids", description: "Bidders place bids on listed items." },
-    {
-      title: "Win Notification",
-      description: "Highest bidder receives a winning email.",
-    },
-    {
-      title: "Payment & Fees",
-      description: "Bidder pays; auctioneer pays 5% fee.",
-    },
-  ];
-
   const { isAuthenticated } = useSelector((state) => state.user);
 
   return (

@@ -1,34 +1,7 @@
 import H1 from "@/components/H1";
-import React from "react";
+import { values } from "@/lib/constants";
 
 const About = () => {
-  const values = [
-    {
-      id: 1,
-      title: "Integrity",
-      description:
-        "We prioritize honesty and transparency in all our dealings, ensuring a fair and ethical auction experience for everyone.",
-    },
-    {
-      id: 2,
-      title: "Innovation",
-      description:
-        "We continually enhance our platform with cutting-edge technology and features to provide users with a seamless and efficient auction process.",
-    },
-    {
-      id: 3,
-      title: "Community",
-      description:
-        "We foster a vibrant community of buyers and sellers who share a passion for finding and offering exceptional items.",
-    },
-    {
-      id: 4,
-      title: "Customer Focus",
-      description:
-        "We are committed to providing exceptional customer support and resources to help users navigate the auction process with ease.",
-    },
-  ];
-
   return (
     <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] gap-7 flex flex-col min-h-screen py-4 justify-center">
       <div>
