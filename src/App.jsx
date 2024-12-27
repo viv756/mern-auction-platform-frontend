@@ -11,11 +11,13 @@ import Login from "./pages/LoginPage";
 import SubmitCommission from "./pages/SubmitCommissionPage";
 import HowItWorks from "./pages/HowItWorksPage";
 import About from "./pages/AboutPage";
+import { getAllAuctionItems } from "./store/slices/auctionSlice";
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUser());
+    dispatch(getAllAuctionItems());
   }, []);
 
   return (

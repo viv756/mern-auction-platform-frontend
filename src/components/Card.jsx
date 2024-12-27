@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
-    });
-    return () => clearTimeout(timer);
-  }, [timeLeft]);
-
   const calculateTimeLeft = () => {
     const now = new Date();
     const startDifference = new Date(startTime) - now;
@@ -40,6 +32,15 @@ const Card = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
     const pad = (num) => String(num).padStart(2, "0");
     return `(${days} Days) ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
   };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    });
+    return () => clearTimeout(timer);
+  }, [timeLeft]);
 
   return (
     <>
