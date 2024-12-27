@@ -4,13 +4,13 @@ import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { fetchUser } from "./store/slices/userSlice";
 import SideDrawer from "./layout/SideDrawer";
-import Home from "./pages/Home";
+import Home from "./pages/HomePage";
 import "react-toastify/dist/ReactToastify.css";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
-import SubmitCommission from "./pages/SubmitCommission";
-import HowItWorks from "./pages/HowItWorks";
-import About from "./pages/About";
+import SignUp from "./pages/SignUpPage";
+import Login from "./pages/LoginPage";
+import SubmitCommission from "./pages/SubmitCommissionPage";
+import HowItWorks from "./pages/HowItWorksPage";
+import About from "./pages/AboutPage";
 
 const App = () => {
   const dispatch = useDispatch();
