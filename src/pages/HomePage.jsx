@@ -2,6 +2,10 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import H1 from "@/components/H1";
 import { howItWorks } from "@/lib/constants";
+import FeaturedAuctions from "@/components/home-sub-components/FeaturedAuctions";
+import UpcomingAuctions from "@/components/home-sub-components/UpcomingAuctions";
+import Leaderboard from "@/components/home-sub-components/Leaderboard";
+import Spinner from "@/components/Spinner";
 
 const Home = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -46,6 +50,9 @@ const Home = () => {
           })}
         </div>
       </div>
+      <FeaturedAuctions />
+      <UpcomingAuctions />
+      <Leaderboard />
     </section>
   );
 };
