@@ -1,46 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { calculateTimeLeft, formatTimeLeft } from "@/lib/utils";
 
 const Card = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
-  const calculateTimeLeft = () => {
-    const now = new Date();
-    const startDifference = new Date(startTime) - now;
-    const endDifference = new Date(endTime) - now;
-    let timeLeft = {};
-
-    if (startDifference > 0) {
-      timeLeft = {
-        type: "Starts In:",
-        days: Math.floor(startDifference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((startDifference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((startDifference / 1000 / 60) % 60),
-        seconds: Math.floor((startDifference / 1000) % 60),
-      };
-    } else if (endDifference > 0) {
-      timeLeft = {
-        type: "Ends In:",
-        days: Math.floor(endDifference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((endDifference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((endDifference / 1000 / 60) % 60),
-        seconds: Math.floor((endDifference / 1000) % 60),
-      };
-    }
-    return timeLeft;
-  };
-
-  const formatTimeLeft = ({ days, hours, minutes, seconds }) => {
-    const pad = (num) => String(num).padStart(2, "0");
-    return `(${days} Days) ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(startTime, endTime));
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
-    });
-    return () => clearTimeout(timer);
-  }, [timeLeft]);
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft(startTime, endTime));
+    }, 1000); // Update every second
+    return () => clearInterval(timer);
+  }, [startTime, endTime])
 
   return (
     <>

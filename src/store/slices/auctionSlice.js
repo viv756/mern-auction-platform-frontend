@@ -22,6 +22,13 @@ const auctionSlice = createSlice({
     getAllAuctionItemFailed(state, action) {
       state.loading = false;
     },
+    resetSlice(state, action) {
+      state.loading = false;
+      state.auctionDetail = state.auctionDetail;
+      state.itemDetail = state.itemDetail;
+      state.myAuctions = state.myAuctions;
+      state.allAuctions = state.allAuctions;
+    },
   },
 });
 
