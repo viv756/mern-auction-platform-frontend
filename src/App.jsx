@@ -12,6 +12,7 @@ import Login from "./pages/LoginPage";
 import SubmitCommission from "./pages/SubmitCommissionPage";
 import HowItWorks from "./pages/HowItWorksPage";
 import About from "./pages/AboutPage";
+import LeaderBoardPage from "./pages/LeaderBoardPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/submit-commission" element={<SubmitCommission />} />
         <Route path="/how-it-works-info" element={<HowItWorks />} />
         <Route path="/about" element={<About />} />
+        <Route path="/leaderboard" element={<LeaderBoardPage />} />
       </Routes>
       <ToastContainer position="top-right" />
     </BrowserRouter>
