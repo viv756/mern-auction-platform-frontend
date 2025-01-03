@@ -17,6 +17,7 @@ import AuctionsPage from "./pages/AuctionsPage";
 import AuctionItemPage from "./pages/AuctionItemPage";
 import CreateAuctionPage from "./pages/CreateAuctionPage";
 import ViewMyAuctionsPage from "./pages/ViewMyAuctionsPage";
+import ViewAuctionDetails from "./pages/ViewAuctionDetails";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="/auction/item/:id" element={<AuctionItemPage />} />
         <Route path="/create-auction" element={<CreateAuctionPage />} />
         <Route path="/view-my-auctions" element={<ViewMyAuctionsPage />} />
+        <Route path="/auction/details/:id" element={<ViewAuctionDetails />} />
       </Routes>
       <ToastContainer position="top-right" />
     </BrowserRouter>
