@@ -27,17 +27,23 @@ const ViewMyAuctionsPage = () => {
         <Spinner />
       ) : (
         <div className="flex flex-wrap gap-6">
-          {myAuctions.map((element) => (
-            <CardTwo
-              title={element.title}
-              startingBid={element.startingBid}
-              endTime={element.endTime}
-              startTime={element.startTime}
-              imgSrc={element.image?.url}
-              id={element._id}
-              key={element._id}
-            />
-          ))}
+          {myAuctions.length > 0 ? (
+            myAuctions.map((element) => (
+              <CardTwo
+                title={element.title}
+                startingBid={element.startingBid}
+                endTime={element.endTime}
+                startTime={element.startTime}
+                imgSrc={element.image?.url}
+                id={element._id}
+                key={element._id}
+              />
+            ))
+          ) : (
+            <h3 className="text-[#666] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl mt-5">
+              You have not posted any auction.
+            </h3>
+          )}
         </div>
       )}
     </div>
