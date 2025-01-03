@@ -66,6 +66,15 @@ const auctionSlice = createSlice({
     republishItemFailed(state, action) {
       state.loading = false;
     },
+    deleteAuctionItemRequest(state, action) {
+      state.loading = true;
+    },
+    deleteAuctionItemSuccess(state, action) {
+      state.loading = false;
+    },
+    deleteAuctionItemFailed(state, action) {
+      state.loading = false;
+    },
     resetSlice(state, action) {
       state.loading = false;
       state.auctionDetail = state.auctionDetail;
@@ -157,6 +166,25 @@ export const republishAuction = (id, data) => async (dispatch) => {
     dispatch(auctionSlice.actions.resetSlice());
   } catch (error) {
     dispatch(auctionSlice.actions.republishItemFailed());
+    toast.error(error.response.data.message);
+    console.error(error.response.data.message);
+    dispatch(auctionSlice.actions.resetSlice());
+  }
+};
+
+export const deleteAuction = (id) => async (dispatch) => {
+  dispatch(auctionSlice.actions.deleteAuctionItemRequest());
+  try {
+    const response = await axios.delete(`http://localhost:5000/api/v1/auctionitem/delete/${id}`, {
+      withCredentials: true,
+    });
+    dispatch(auctionSlice.actions.deleteAuctionItemSuccess());
+    toast.success(response.data.message);
+    dispatch(getMyAuctionItems());
+    dispatch(getAllAuctionItems());
+    dispatch(auctionSlice.actions.resetSlice());
+  } catch (error) {
+    dispatch(auctionSlice.actions.deleteAuctionItemFailed());
     toast.error(error.response.data.message);
     console.error(error.response.data.message);
     dispatch(auctionSlice.actions.resetSlice());

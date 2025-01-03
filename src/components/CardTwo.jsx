@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import { calculateTimeLeft, formatTimeLeft } from "@/lib/utils";
-import { republishAuction } from "@/store/slices/auctionSlice";
+import { deleteAuction, republishAuction } from "@/store/slices/auctionSlice";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CardTwo = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(startTime, endTime));
   const [openDrawer, setOpenDrawer] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,7 +18,9 @@ const CardTwo = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
     return () => clearInterval(timer);
   }, [startTime, endTime]);
 
-  const handleDeleteAuction = (id) => {};
+  const handleDeleteAuction = () => {
+    dispatch(deleteAuction(id));
+  };
 
   return (
     <>
