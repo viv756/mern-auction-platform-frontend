@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { RiAuctionFill } from "react-icons/ri";
-import { elements } from "chart.js";
 import { Link } from "react-router-dom";
 
 const UpcomingAuctions = () => {
