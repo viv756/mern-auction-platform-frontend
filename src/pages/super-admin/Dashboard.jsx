@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   clearAllSuperAdminSliceErrors,
   getAllPaymentProofs,
@@ -13,9 +14,12 @@ import BiddersAuctioneerGraph from "@/components/dashboard-sub-components/Bidder
 import PaymentProofs from "@/components/dashboard-sub-components/PaymentProofs";
 import AuctionItemDelete from "@/components/dashboard-sub-components/AuctionItemDelete";
 
+
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.superAdmin);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const navigateTo = useNavigate();
 
   useEffect(() => {
     dispatch(getMonthlyRevenue());
@@ -23,6 +27,12 @@ const Dashboard = () => {
     dispatch(getAllPaymentProofs());
     dispatch(clearAllSuperAdminSliceErrors());
   }, []);
+
+  useEffect(() => {
+    if (user.role !== "Super Admin" || !isAuthenticated) {
+      navigateTo("/");
+    }
+  }, [isAuthenticated]);
 
   return (
     <>
