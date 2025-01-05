@@ -6,7 +6,7 @@ import { RiAuctionFill } from "react-icons/ri";
 import { MdLeaderboard, MdDashboard } from "react-icons/md";
 import { FaFileInvoiceDollar } from "react-icons/fa6";
 import { IoMdCloseCircleOutline, IoIosCreate } from "react-icons/io";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaUserCircle } from "react-icons/fa";
 import { SiGooglesearchconsole } from "react-icons/si";
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { logout } from "@/store/slices/userSlice";
@@ -94,6 +94,14 @@ const SideDrawer = () => {
           )}
           <hr className="mb-4 border-t-[#d6482b]" />
           <ul className="flex flex-col gap-3">
+            {
+              isAuthenticated && (
+                <li>
+              <CustomLink navLink={"/me"} icon={<FaUserCircle />} title={"My Profile"}
+              />
+            </li>
+              )
+            }
             <li>
               <CustomLink navLink={"/how-it-works-info"} icon={<SiGooglesearchconsole />} title={"How it works"}
               />
