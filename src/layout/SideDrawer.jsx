@@ -49,15 +49,24 @@ const SideDrawer = () => {
             {isAuthenticated && user && user.role === "Auctioneer" && (
               <>
                 <li>
-                  <CustomLink navLink={"/submit-commission"} icon={<FaFileInvoiceDollar />} title={"Submit Commission"}
+                  <CustomLink
+                    navLink={"/submit-commission"}
+                    icon={<FaFileInvoiceDollar />}
+                    title={"Submit Commission"}
                   />
                 </li>
                 <li>
-                  <CustomLink navLink={"/create-auction"}  icon={<IoIosCreate />} title={"Create Auction"}
+                  <CustomLink
+                    navLink={"/create-auction"}
+                    icon={<IoIosCreate />}
+                    title={"Create Auction"}
                   />
                 </li>
                 <li>
-                  <CustomLink navLink={"/view-my-auctions"} icon={<FaEye />} title={"View My Auctions"}
+                  <CustomLink
+                    navLink={"/view-my-auctions"}
+                    icon={<FaEye />}
+                    title={"View My Auctions"}
                   />
                 </li>
               </>
@@ -94,16 +103,16 @@ const SideDrawer = () => {
           )}
           <hr className="mb-4 border-t-[#d6482b]" />
           <ul className="flex flex-col gap-3">
-            {
-              isAuthenticated && (
-                <li>
-              <CustomLink navLink={"/me"} icon={<FaUserCircle />} title={"My Profile"}
-              />
-            </li>
-              )
-            }
+            {isAuthenticated && (
+              <li>
+                <CustomLink navLink={"/me"} icon={<FaUserCircle />} title={"My Profile"} />
+              </li>
+            )}
             <li>
-              <CustomLink navLink={"/how-it-works-info"} icon={<SiGooglesearchconsole />} title={"How it works"}
+              <CustomLink
+                navLink={"/how-it-works-info"}
+                icon={<SiGooglesearchconsole />}
+                title={"How it works"}
               />
             </li>
             <li>

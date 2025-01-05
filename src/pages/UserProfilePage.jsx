@@ -80,109 +80,106 @@ const UserProfilePage = () => {
                 />
               </div>
             </div>
-
-            {user.role === "Auctioneer" && (
-              <div className="mb-6 w-full">
-                <h3 className="text-xl font-semibold mb-4">Payment Details</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Bank Name</label>
-                    <input
-                      type="text"
-                      defaultValue={user.paymentMethods.bankTransfer.bankName}
-                      className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
-                      disabled
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      Bank Account (IBAN)
-                    </label>
-                    <input
-                      type="text"
-                      defaultValue={user.paymentMethods.bankTransfer.bankAccountNumber}
-                      className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
-                      disabled
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      User Name On Bank Account
-                    </label>
-                    <input
-                      type="text"
-                      defaultValue={user.paymentMethods.bankTransfer.bankAccountName}
-                      className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
-                      disabled
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      Easypaisa Account Number
-                    </label>
-                    <input
-                      type="text"
-                      defaultValue={user.paymentMethods.easypaisa.easypaisaAccountNumber}
-                      className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
-                      disabled
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Paypal Email</label>
-                    <input
-                      type="text"
-                      defaultValue={user.paymentMethods.paypal.paypalEmail}
-                      className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
-                      disabled
-                    />
-                  </div>
+          </div>
+          {user.role === "Auctioneer" && (
+            <div className="mb-6 w-full">
+              <h3 className="text-xl font-semibold mb-4">Payment Details</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Bank Name</label>
+                  <input
+                    type="text"
+                    defaultValue={user.paymentMethods.bankTransfer.bankName}
+                    className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
+                    disabled
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Bank Account (IBAN)
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={user.paymentMethods.bankTransfer.bankAccountNumber}
+                    className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
+                    disabled
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    User Name On Bank Account
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={user.paymentMethods.bankTransfer.bankAccountName}
+                    className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
+                    disabled
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Easypaisa Account Number
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={user.paymentMethods.easypaisa.easypaisaAccountNumber}
+                    className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
+                    disabled
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Paypal Email</label>
+                  <input
+                    type="text"
+                    defaultValue={user.paymentMethods.paypal.paypalEmail}
+                    className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
+                    disabled
+                  />
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
-            <div className="mb-6 w-full">
-              <h3 className="text-xl font-semibold mb-4">Other User Details</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {user.role === "Auctioneer" && (
-                  <>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">
-                        Unpaid Commissions
-                      </label>
-                      <input
-                        type="text"
-                        defaultValue={user.unpaidCommission}
-                        className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
-                        disabled
-                      />
-                    </div>
-                  </>
-                )}
-                {user.role === "Bidder" && (
-                  <>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">
-                        Auctions Won
-                      </label>
-                      <input
-                        type="text"
-                        defaultValue={user.auctionsWon}
-                        className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
-                        disabled
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">Money Spent</label>
-                      <input
-                        type="text"
-                        defaultValue={user.moneySpent}
-                        className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
-                        disabled
-                      />
-                    </div>
-                  </>
-                )}
-              </div>
+          <div className="mb-6 w-full">
+            <h3 className="text-xl font-semibold mb-4">Other User Details</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {user.role === "Auctioneer" && (
+                <>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">
+                      Unpaid Commissions
+                    </label>
+                    <input
+                      type="text"
+                      defaultValue={user.unpaidCommission}
+                      className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
+                      disabled
+                    />
+                  </div>
+                </>
+              )}
+              {user.role === "Bidder" && (
+                <>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Auctions Won</label>
+                    <input
+                      type="text"
+                      defaultValue={user.auctionsWon}
+                      className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
+                      disabled
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Money Spent</label>
+                    <input
+                      type="text"
+                      defaultValue={user.moneySpent}
+                      className="w-ful mt-1 p-2 border-gray-300 rounded-md focus:outline-none"
+                      disabled
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
