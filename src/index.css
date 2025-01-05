@@ -8,7 +8,6 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
 
     --foreground: 222.2 84% 4.9%;
 
@@ -115,7 +114,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(86deg, rgba(246, 244, 240), #f6f4f0);
+    background:#ffffff;
     overflow-x: hidden;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;

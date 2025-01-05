@@ -13,8 +13,8 @@ const AuctionsPage = () => {
       ) : (
         <article className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col">
           <section className="my-8">
-            <H1 content={" Auctions"} color={"#d6482b"} />
-            <div className="flex flex-wrap gap-6">
+            <H1>Auctions</H1>
+            <div className="flex flex-wrap gap-6 mt-8">
               {allAuctions.map((element) => (
                 <Card
                   title={element.title}

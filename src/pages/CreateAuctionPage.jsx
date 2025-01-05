@@ -55,9 +55,9 @@ const CreateAuctionPage = () => {
 
   return (
     <article className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col">
-      <H1 content={"Create Auction"} color={"#d6482b"} />
-      <div className="bg-white mx-auto w-full h-auto px-2 flex flex-col gap-4 items-center py-4 justify-center rounded-md">
-        <form className="flex flex-col gap-5 w-full" onSubmit={handleCreateAuction}>
+      <H1>Create Auction</H1>
+      <div className="bg-boxcolor mx-auto w-full h-auto px-2 flex flex-col gap-4 items-center py-4 justify-center rounded-md">
+        <form className="flex flex-col gap-5 w-full sm:p-10 p-3" onSubmit={handleCreateAuction}>
           <p className="font-semibold text-xl md:text-2xl">Auction Detail</p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <div className="flex flex-col sm:flex-1">
@@ -150,7 +150,7 @@ const CreateAuctionPage = () => {
             <div className="flex items-center justify-center w-full">
               <label
                 htmlFor="dropzone-file"
-                className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-boxcolor dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
                   {imagePreview ? (
                     <img src={imagePreview} alt={title} className="w-44 h-auto" />
@@ -183,7 +183,7 @@ const CreateAuctionPage = () => {
               </label>
             </div>
           </div>
-          <button className="bg-[#D6482B] font-semibold hover:bg-[#b8381e] text-xl transition-all duration-300 py-2 px-4 rounded-md text-white w-[280px] mx-auto lg:w-[640px] my-4">
+          <button className="bg-primary font-semibold hover:bg-accent text-xl transition-all duration-300 py-2 px-4 rounded-md text-white w-[280px] mx-auto lg:w-[640px] my-4">
             {loading ? "Creating Auction..." : "Create Auction"}
           </button>
         </form>

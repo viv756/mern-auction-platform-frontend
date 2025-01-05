@@ -60,9 +60,9 @@ const SignUp = () => {
 
   return (
     <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col min-h-screen py-4 justify-center">
-      <div className="bg-white mx-auto w-full h-auto px-2 flex flex-col gap-4 items-center py-4 justify-center rounded-md">
-        <H1 color={"#d6482b"} content={"Register"} />
-        <form className="flex flex-col gap-5 w-full" onSubmit={handleRegister}>
+      <div className="bg-boxcolor mx-auto w-full h-auto px-2 flex flex-col gap-4 items-center py-4 justify-center rounded-md">
+        <H1 className="mt-7">Register</H1>
+        <form className="flex flex-col gap-5 w-full sm:p-10 p-3" onSubmit={handleRegister}>
           <p className="font-semibold text-xl md:text-2xl">Personal Details</p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <div className="flex flex-col sm:flex-1">
@@ -201,7 +201,7 @@ const SignUp = () => {
             </div>
           </div>
           <button
-            className="bg-[#d6482b] w-[420px] font-semibold hover:bg-[#b8381e] transition-all duration-300 text-xl py-2 px-4 rounded-md text-white mx-auto lg:w-[640px] my-4"
+            className="bg-primary w-[420px] font-semibold hover:bg-accent transition-all duration-300 text-xl py-2 px-4 rounded-md text-white mx-auto lg:w-[640px] mb-4 mt-10"
             type="submit"
             disabled={loading}>
             {loading && "Registering..."}

@@ -40,7 +40,7 @@ const Dashboard = () => {
         <Spinner />
       ) : (
         <div className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col gap-10">
-          <H1 content={"Dashboard"} color={`#d6482b`} />
+          <H1>Dashboard</H1>
           <div className="flex flex-col gap-10">
             <div>
               <h3 className="text-[#111] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl">

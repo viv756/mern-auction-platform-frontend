@@ -24,38 +24,38 @@ const CardTwo = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
 
   return (
     <>
-      <div className="basis-full bg-white rounded-md group sm:basis-56 lg:basis-60 2xl:basis-80">
+      <div className="basis-full bg-white rounded-md group sm:basis-56 lg:basis-60 2xl:basis-80 hover:shadow-xl transition-all duration-300">
         <img src={imgSrc} alt={title} className="w-full aspect-[4/3] m-auto md:p-12" />
         <div className="px-2 pt-4 pb-2">
-          <h5 className="font-semibold text-[18px] group-hover:text-[#d6482b] mb-2">{title}</h5>
+          <h5 className="font-semibold text-[18px] group-hover:text-primary mb-2">{title}</h5>
           {startingBid && (
-            <p className="text-stone-600 font-light">
-              Starting Bid: <span className="text-[#fdba88] font-bold ml-1">{startingBid}</span>
+            <p className="text-textcolor font-light">
+              Starting Bid: <span className="text-accent font-bold ml-1">{startingBid}</span>
             </p>
           )}
-          <p className="text-stone-600 font-light">
+          <p className="text-textcolor font-light">
             {timeLeft.type}
             {Object.keys(timeLeft).length > 1 ? (
-              <span className="text-[#fdba88] font-bold ml-1">{formatTimeLeft(timeLeft)}</span>
+              <span className="text-accent font-bold ml-1">{formatTimeLeft(timeLeft)}</span>
             ) : (
-              <span className="text-[#fdba88] font-bold ml-1">Time's up!</span>
+              <span className="text-accent font-bold ml-1">Time's up!</span>
             )}
           </p>
           <div className="flex flex-col gap-2 mt-4">
             <Link
-              className="bg-stone-700 text-center text-white text-xl px-4 py-2 rounded-md transition-all duration-300 hover:bg-black"
+              className="bg-primary text-center text-white text-xl px-4 py-2 rounded-md transition-all duration-300 hover:bg-accent"
               to={`/auction/details/${id}`}>
               View Auction
             </Link>
             <button
-              className="bg-red-400 text-center text-white text-xl px-4 py-2 rounded-md transition-all duration-300 hover:bg-red-600"
+              className="bg-red-600 text-center text-white text-xl px-4 py-2 rounded-md transition-all duration-300 hover:bg-red-400"
               onClick={handleDeleteAuction}>
               Delete Auction
             </button>
             <button
               disabled={new Date(endTime) > Date.now()}
               onClick={() => setOpenDrawer(true)}
-              className="bg-sky-400 text-center text-white text-xl px-4 py-2 rounded-md transition-all duration-300 hover:bg-sky-700">
+              className="bg-[#3E7B27] text-center text-white text-xl px-4 py-2 rounded-md transition-all duration-300 hover:bg-[#85A947]">
               Republish Auction
             </button>
           </div>
@@ -87,7 +87,7 @@ const Drawer = ({ setOpenDrawer, openDrawer, id }) => {
       }  left-0 w-full transition-all duration-300 h-full bg-[#00000087] flex items-end`}>
       <div className="bg-white h-fit transition-all duration-300 w-full">
         <div className="w-full px-5 py-8 sm:max-w-[640px] sm:m-auto">
-          <h3 className="text-[#D6482B]  text-3xl font-semibold text-center mb-1">
+          <h3 className="text-primary  text-3xl font-semibold text-center mb-1">
             Republish Auction
           </h3>
           <p className="text-stone-600">
@@ -121,7 +121,7 @@ const Drawer = ({ setOpenDrawer, openDrawer, id }) => {
             <div>
               <button
                 type="button"
-                className="bg-blue-500 flex justify-center w-full py-2 rounded-md text-white font-semibold text-xl transition-all duration-300 hover:bg-blue-700"
+                className="bg-primary flex justify-center w-full py-2 rounded-md text-white font-semibold text-xl transition-all duration-300 hover:bg-accent"
                 onClick={handleRepbulishAuction}>
                 {loading ? "Republishing" : "Republish"}
               </button>

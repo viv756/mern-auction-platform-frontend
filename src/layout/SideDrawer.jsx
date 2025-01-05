@@ -26,20 +26,20 @@ const SideDrawer = () => {
     <>
       <div
         onClick={() => setShow(!show)}
-        className="fixed right-5 top-5 bg-[#D6482B] text-white text-3xl p-2 rounded-md hover:bg-[#b8381e] lg:hidden ">
+        className="fixed right-5 top-5 bg-primary text-white text-3xl p-2 rounded-md hover:bg-accent lg:hidden ">
         <GiHamburgerMenu />
       </div>
       <div
-        className={`w-[100%] sm:w-[300px] bg-[#f6f4f0] h-full fixed top-0 ${
+        className={`w-[100%] sm:w-[300px] bg-background h-full fixed top-0 ${
           show ? "left-0" : "left-[-100%]"
         } transition-all duration-100 p-4 flex flex-col justify-between lg:left-0 border-r-[1px] border-r-stone-500`}>
         <div className="relative">
           <Link to={"/"}>
             <h4 className="text-2xl font-semibold mb-4">
-              Prime<span className="text-[#D6482b]">Bid</span>
+              Elite<span className="text-primary pl-2">Auctions</span>
             </h4>
           </Link>
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-3 mt-9">
             <li>
               <CustomLink navLink={"/auctions"} icon={<RiAuctionFill />} title={"Auctions"} />
             </li>
@@ -82,12 +82,12 @@ const SideDrawer = () => {
               <div className="my-4 flex gap-2">
                 <Link
                   to={"/sign-up"}
-                  className="bg-[#D6482B] font-semibold hover:bg-[#b8381e] text-xl py-1 px-4 rounded-md text-white">
+                  className="bg-primary font-semibold hover:shadow-xl rounded-md px-4 flex items-center py-1 text-white  transition-all duration-300">
                   Sign Up
                 </Link>
                 <Link
                   to={"/login"}
-                  className="text-[#DECCBE] bg-transparent border-[#DECCBE] border-2 hover:bg-[#fffefd] hover:text-[#fdba88] font-bold text-xl py-1 px-4 rounded-md">
+                  className="text-[#08071A] bg-[#D7D3E1] hover:shadow-xl font-medium text-xl  rounded-md px-4 flex items-center py-1 transition-all duration-300">
                   Login
                 </Link>
               </div>
@@ -95,13 +95,13 @@ const SideDrawer = () => {
           ) : (
             <>
               <div className="my-4 flex gap-4 w-fit" onClick={handleLogout}>
-                <button className="bg-[#D6482B] font-semibold hover:bg-[#b8381e] text-xl py-1 px-4 rounded-md text-white">
+                <button className="bg-primary font-semibold hover:shadow-xl transition-all duration-300 text-xl py-1 px-4 rounded-md text-white">
                   Logout
                 </button>
               </div>
             </>
           )}
-          <hr className="mb-4 border-t-[#d6482b]" />
+          <hr className="mb-4 border-t-primary" />
           <ul className="flex flex-col gap-3">
             {isAuthenticated && (
               <li>

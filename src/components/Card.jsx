@@ -10,27 +10,27 @@ const Card = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
       setTimeLeft(calculateTimeLeft(startTime, endTime));
     }, 1000); // Update every second
     return () => clearInterval(timer);
-  }, [startTime, endTime])
+  }, [startTime, endTime]);
 
   return (
     <>
       <Link
         to={`/auction/item/${id}`}
-        className="flex-grow basis-full bg-white rounded-md group sm:basis-56 lg:basis-60 2xl:basis-80">
+        className="flex-grow basis-full bg-white rounded-md group sm:basis-56 lg:basis-60 2xl:basis-80 hover:shadow-xl transition-all duration-300">
         <img src={imgSrc} alt={title} className="w-full aspect-[4/3] m-auto md:p-12" />
         <div className="px-2 pt-4 pb-2">
-          <h5 className="font-semibold text-[18px] group-hover:text-[#d6482b] mb-2">{title}</h5>
+          <h5 className="font-semibold text-[18px] group-hover:text-primary mb-2">{title}</h5>
           {startingBid && (
-            <p className="text-stone-600 font-light">
-              Starting Bid: <span className="text-[#fdba88] font-bold ml-1">{startingBid}</span>
+            <p className="text-textcolor font-light">
+              Starting Bid: <span className="text-accent font-bold ml-1">{startingBid}</span>
             </p>
           )}
-          <p className="text-stone-600 font-light">
+          <p className="text-accent font-light">
             {timeLeft.type}
             {Object.keys(timeLeft).length > 1 ? (
-              <span className="text-[#fdba88] font-bold ml-1">{formatTimeLeft(timeLeft)}</span>
+              <span className="text-accent font-bold ml-1">{formatTimeLeft(timeLeft)}</span>
             ) : (
-              <span className="text-[#fdba88] font-bold ml-1">Time's up!</span>
+              <span className="text-accent font-bold ml-1">Time's up!</span>
             )}
           </p>
         </div>

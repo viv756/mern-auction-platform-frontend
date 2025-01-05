@@ -12,8 +12,8 @@ const AuctionItemDelete = () => {
   return (
     <>
       <div className="overflow-x-auto mb-10">
-        <table className="min-w-full bg-white border-gray-300">
-          <thead className="bg-gray-800 text-white">
+        <table className="min-w-full bg-boxcolor border-gray-300">
+          <thead className="bg-accent text-white">
             <tr>
               <th className="py-2 px-4 text-left">Image</th>
               <th className="py-2 px-4 text-left">Title</th>
@@ -36,11 +36,11 @@ const AuctionItemDelete = () => {
                     <td className="py-2 px-4 flex space-x-2">
                       <Link
                         to={`/auction/details/${element._id}`}
-                        className="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-700 transition-all duration-300">
+                        className="bg-primary text-white py-1 px-3 rounded-md transition-all duration-300">
                         View
                       </Link>
                       <button
-                        className="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-700 transition-all duration-300"
+                        className="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-700 transition-all duration-300"
                         onClick={() => handleAuctionDelete(element._id)}>
                         Delete
                       </button>

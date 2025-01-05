@@ -35,13 +35,13 @@ const AuctionItemPage = () => {
   return (
     <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col">
       <div className="text-[16px] flex flex-wrap gap-2 items-center">
-        <Link to="/" className="font-semibold transition-all duration-300 hover:text-[#D6482B]">
+        <Link to="/" className="font-semibold transition-all duration-300 hover:text-primary">
           Home
         </Link>
         <FaGreaterThan className="text-stone-400" />
         <Link
           to={"/auctions"}
-          className="font-semibold transition-all duration-300 hover:text-[#D6482B]">
+          className="font-semibold transition-all duration-300 hover:text-primary">
           Auctions
         </Link>
         <FaGreaterThan className="text-stone-400" />
@@ -61,11 +61,11 @@ const AuctionItemPage = () => {
                   {auctionDetail.title}
                 </h3>
                 <p className="text-xl font-semibold">
-                  Condition: <span className="text-[#D6482B]">{auctionDetail.condition}</span>
+                  Condition: <span className="text-primary">{auctionDetail.condition}</span>
                 </p>
                 <p className="text-xl font-semibold">
                   Minimum Bid:{" "}
-                  <span className="text-[#D6482B]">Rs.{auctionDetail.startingBid}</span>
+                  <span className="text-primary">Rs.{auctionDetail.startingBid}</span>
                 </p>
               </div>
             </div>
@@ -81,7 +81,7 @@ const AuctionItemPage = () => {
               })}
           </div>
           <div className="flex-1">
-            <header className="bg-stone-200 py-4 text-[24px] font-semibold px-4">BIDS</header>
+            <header className="bg-secondary py-4 text-[24px] font-semibold px-4">BIDS</header>
             <div className="bg-white px-4 min-h-fit lg:min-h-[650px]">
               {auctionBidders &&
               new Date(auctionDetail.startTime) < Date.now() &&
@@ -120,7 +120,7 @@ const AuctionItemPage = () => {
               )}
             </div>
 
-            <div className="bg-[#D6482B] py-4 text-[16px] md:text-[24px] font-semibold px-4 flex items-center justify-between">
+            <div className="bg-primary py-4 text-[16px] md:text-[24px] font-semibold px-4 flex items-center justify-between">
               {Date.now() >= new Date(auctionDetail.startTime) &&
               Date.now() <= new Date(auctionDetail.endTime) ? (
                 <>

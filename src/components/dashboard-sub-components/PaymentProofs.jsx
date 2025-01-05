@@ -29,8 +29,8 @@ const PaymentProofs = () => {
   return (
     <>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white mt-5">
-          <thead className="bg-gray-800 text-white">
+        <table className="min-w-full bg-boxcolor mt-5">
+          <thead className="bg-accent text-white">
             <tr>
               <th className="w-1/3 py-2">User ID</th>
               <th className="w-1/3 py-2">Status</th>
@@ -45,7 +45,7 @@ const PaymentProofs = () => {
                   <td className="py-2 px-4 text-center">{element.status}</td>
                   <td className="flex items-center py-4 justify-center gap-3">
                     <button
-                      className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-700 transition-all duration-300"
+                      className="bg-primary text-white py-1 px-3 rounded  transition-all duration-300"
                       onClick={() => handleFetchPaymentDetail(element._id)}>
                       Update
                     </button>

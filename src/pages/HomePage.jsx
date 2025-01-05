@@ -14,19 +14,21 @@ const Home = () => {
     <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col min-h-screen py-4 justify-center">
       <div>
         <p className="text-[#DECCBE] font-bold text-xl mb-8">Transparency Leads to Your Victory</p>
-        <H1 content={"Transparent Auctions"} color={`#111`} />
-        <H1 content={"Be The Winner"} color={`#d6482b`} />
+        <H1 style={{ color: "#040316" }}>Transparent Auctions</H1>
+        <H1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          Be The Winner
+        </H1>
         <div className="flex gap-4 my-8">
           {!isAuthenticated && (
             <>
               <Link
                 to="/sign-up"
-                className="bg-[#d6482b] font-semibold hover:bg-[#b8381e] rounded-md px-8 flex items-center py-2 text-white  transition-all duration-300">
+                className="bg-primary font-semibold hover:shadow-xl rounded-md px-8 flex items-center py-2 text-white transition-all duration-300">
                 Sign Up
               </Link>
               <Link
                 to={"/login"}
-                className="text-[#DECCBE] bg-transparent border-2 border-[#DECCBE] hover:bg-[#fff3fd] hover:text-[#fdba88] font-bold text-xl  rounded-md px-8 flex items-center py-2 transition-all duration-300">
+                className="text-[#08071A] bg-secondary hover:shadow-xl font-medium text-xl  rounded-md px-8 flex items-center py-2 transition-all duration-300">
                 Login
               </Link>
             </>
@@ -42,7 +44,7 @@ const Home = () => {
             return (
               <div
                 key={element.title}
-                className="bg-white flex flex-col gap-2 p-2 rounded-md h-[96px] justify-center md:w-[48%] lg:w-[47%] 2xl:w-[24%] hover:shadow-md transition-all duration-300">
+                className="bg-boxcolor flex flex-col gap-2 p-2 rounded-md h-[96px] justify-center md:w-[48%] lg:w-[47%] 2xl:w-[24%] hover:shadow-2xl transition-all duration-300">
                 <h5 className="font-bold">{element.title}</h5>
                 <p>{element.description}</p>
               </div>

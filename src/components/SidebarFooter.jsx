@@ -19,7 +19,7 @@ const SidebarFooter = () => {
       </div>
       <Link
         to={"/contact"}
-        className="text-stone-500 font-semibold hover:text-[#d6482b] hover:transition-all hover:duration-150">
+        className="text-stone-500 font-semibold hover:text-primary hover:transition-all hover:duration-150">
         Contact Us
       </Link>
       <p className="text-stone-500">&copy; PrimeBid, LLC.</p>
@@ -27,7 +27,7 @@ const SidebarFooter = () => {
         Degined By{" "}
         <Link
           to={"/"}
-          className="font-semibold hover:text-[#d6482b] hover:transition-all hover:duration-150">
+          className="font-semibold hover:text-primary hover:transition-all hover:duration-150">
           Vivek
         </Link>
       </p>

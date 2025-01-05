@@ -47,7 +47,7 @@ const ContactUsPage = () => {
       <div className="bg-white mx-auto w-full h-auto px-2 flex flex-col gap-4 items-center py-4 justify-center rounded-md">
         <form className="flex flex-col gap-5 w-full" onSubmit={handleContactForm}>
           <h3
-            className={`text-[#D6482B] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl`}>
+            className={`text-primary text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl`}>
             Contact Us
           </h3>
           <div className="flex flex-col gap-2">
@@ -56,7 +56,7 @@ const ContactUsPage = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D6482B]"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -66,7 +66,7 @@ const ContactUsPage = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D6482B]"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -76,7 +76,7 @@ const ContactUsPage = () => {
               type="number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D6482B]"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -86,7 +86,7 @@ const ContactUsPage = () => {
               type="text"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D6482B]"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -96,13 +96,13 @@ const ContactUsPage = () => {
               rows={7}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D6482B]"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
 
           <button
-            className="bg-[#d6482b] mx-auto font-semibold hover:bg-[#b8381e] text-xl transition-all duration-300 py-2 px-4 rounded-md text-white my-4"
+            className="bg-primary mx-auto font-semibold hover:bg-accent text-xl transition-all duration-300 py-2 px-4 rounded-md text-white my-4"
             type="submit">
             {loading ? "Sending Message..." : "Send Message"}
           </button>

@@ -16,7 +16,7 @@ const UserProfilePage = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="bg-white mx-auto w-full h-auto px-2 flex flex-col gap-4 items-center py-4 justify-center rounded-md">
+        <div className="bg-boxcolor sm:p-10 pl-5 mx-auto w-full h-auto px-2 flex flex-col gap-4 items-center py-4 justify-center rounded-md">
           <img
             src={user.profileImage?.url}
             alt="/imageHolder.jpg"

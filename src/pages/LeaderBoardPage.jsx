@@ -12,10 +12,10 @@ const LeaderBoardPage = () => {
       ) : (
         <>
           <div className="flex flex-col min-[340px]:flex-row min-[340px]:gap-2 mb-5">
-            <H1 content={"  Bidders Leaderboard"} color={"#D6482B"} />
+            <H1>Bidders Leaderboard</H1>
           </div>
           <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border my-5 border-gray-300">
+            <table className="min-w-full bg-boxcolor border my-5 border-gray-300">
               <thead>
                 <tr>
                   <th className="py-2 px-4 text-left">Profile Pic</th>

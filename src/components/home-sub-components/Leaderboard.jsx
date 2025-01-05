@@ -10,12 +10,12 @@ const Leaderboard = () => {
         <h3 className="text-[#111] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl">
           Top 10
         </h3>
-        <h3 className="text-[#D6482B] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl">
+        <h3 className="text-accent text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl">
           Bidders Leaderboard
         </h3>
       </div>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border my-5 border-gray-300">
+        <table className="min-w-full bg-boxcolor border my-5 border-gray-300">
           <thead>
             <tr>
               <th className="py-2 px-4 text-left">Profile Pic</th>
@@ -49,7 +49,7 @@ const Leaderboard = () => {
       </div>
       <Link
         to={"/leaderboard"}
-        className="border-2 border-stone-200 font-bold text-xl w-full py-2 flex justify-center rounded-md hover:border-stone-500 transition-all duration-300">
+        className="border-2 border-stone-200 bg-boxcolor font-bold text-xl w-full py-2 flex justify-center rounded-md hover:border-stone-500 transition-all duration-300">
         Go to Leaderboard
       </Link>
     </section>

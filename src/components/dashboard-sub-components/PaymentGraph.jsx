@@ -45,7 +45,7 @@ const PaymentGraph = () => {
       {
         label: "Total Payment Received",
         data: monthlyRevenue,
-        backgroundColor: "#D6482B",
+        backgroundColor: "#461854",
       },
     ],
   };
