@@ -8,7 +8,7 @@ import { getAuctionDetail } from "@/store/slices/auctionSlice";
 const ViewAuctionDetails = () => {
   const { id } = useParams();
   const { loading, auctionDetail, auctionBidders } = useSelector((state) => state.auction);
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
 
   const navigateTo = useNavigate();
   const dispatch = useDispatch();

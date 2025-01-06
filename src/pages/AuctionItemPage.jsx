@@ -5,25 +5,19 @@ import { useEffect, useState } from "react";
 import { FaGreaterThan } from "react-icons/fa";
 import { RiAuctionFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const AuctionItemPage = () => {
+  const [amount, setAmount] = useState(0);
   const { id } = useParams();
   const { loading, auctionDetail, auctionBidders } = useSelector((state) => state.auction);
-  const { isAuthenticated } = useSelector((state) => state.user);
-  const navigateTo = useNavigate();
   const dispatch = useDispatch();
 
-  const [amount, setAmount] = useState(0);
-
   useEffect(() => {
-    if (!isAuthenticated) {
-      navigateTo("/");
-    }
     if (id) {
       dispatch(getAuctionDetail(id));
     }
-  }, [isAuthenticated]);
+  }, [id]);
 
   const handleBid = () => {
     const formData = new FormData();
@@ -64,8 +58,7 @@ const AuctionItemPage = () => {
                   Condition: <span className="text-primary">{auctionDetail.condition}</span>
                 </p>
                 <p className="text-xl font-semibold">
-                  Minimum Bid:{" "}
-                  <span className="text-primary">Rs.{auctionDetail.startingBid}</span>
+                  Minimum Bid: <span className="text-primary">Rs.{auctionDetail.startingBid}</span>
                 </p>
               </div>
             </div>

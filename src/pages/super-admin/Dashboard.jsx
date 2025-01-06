@@ -14,11 +14,10 @@ import BiddersAuctioneerGraph from "@/components/dashboard-sub-components/Bidder
 import PaymentProofs from "@/components/dashboard-sub-components/PaymentProofs";
 import AuctionItemDelete from "@/components/dashboard-sub-components/AuctionItemDelete";
 
-
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.superAdmin);
-  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
   const navigateTo = useNavigate();
 
   useEffect(() => {

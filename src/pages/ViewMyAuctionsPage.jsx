@@ -8,7 +8,7 @@ import CardTwo from "@/components/CardTwo";
 
 const ViewMyAuctionsPage = () => {
   const { myAuctions, loading } = useSelector((state) => state.auction);
-  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const navigateTo = useNavigate();

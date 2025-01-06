@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "@/store/slices/userSlice";
+import { login, setLoginSuccesFalse } from "@/store/slices/authSlice";
 import H1 from "@/components/H1";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { loading, isAuthenticated } = useSelector((state) => state.user);
+  const { loading, successLogin } = useSelector((state) => state.auth);
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (successLogin) {
+      navigateTo("/");
+      dispatch(setLoginSuccesFalse());
+    }
+  }, [successLogin]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -19,13 +26,6 @@ const Login = () => {
     formData.append("password", password);
     dispatch(login(formData));
   };
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigateTo("/");
-    }
-  }, [dispatch, isAuthenticated, loading]);
-
   return (
     <>
       <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col min-h-screen py-4 justify-center">

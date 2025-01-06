@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import H1 from "@/components/H1";
-import { register } from "@/store/slices/userSlice";
+import { register } from "@/store/slices/authSlice";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -19,7 +19,7 @@ const SignUp = () => {
   const [profileImage, setProfileImage] = useState("");
   const [profileImagePreview, setProfileImagePreview] = useState("");
 
-  const { loading, isAuthenticated } = useSelector((state) => state.user);
+  const { loading, isAuthenticated } = useSelector((state) => state.auth);
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
 

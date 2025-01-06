@@ -3,7 +3,7 @@ import H1 from "@/components/H1";
 import Spinner from "@/components/Spinner";
 
 const LeaderBoardPage = () => {
-  const { loading, leaderboard } = useSelector((state) => state.user);
+  const { loading, leaderboard } = useSelector((state) => state.auth);
 
   return (
     <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col">

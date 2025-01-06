@@ -1,16 +1,9 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Spinner from "@/components/Spinner";
 
 const UserProfilePage = () => {
-  const { user, isAuthenticated, loading } = useSelector((state) => state.user);
-  const navigateTo = useNavigate();
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigateTo("/");
-    }
-  }, [isAuthenticated]);
+  const { user, isAuthenticated, loading } = useSelector((state) => state.auth);
+
   return (
     <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col min-h-screen py-4 justify-start">
       {loading ? (

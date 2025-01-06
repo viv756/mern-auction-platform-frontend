@@ -20,7 +20,7 @@ const CreateAuctionPage = () => {
 
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.auction);
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
 
   const navigateTo = useNavigate();
   useEffect(() => {

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { fetchUser, fetchLeaderboard } from "./store/slices/userSlice";
+import { fetchUser, fetchLeaderboard } from "./store/slices/authSlice";
 import { getAllAuctionItems } from "./store/slices/auctionSlice";
 import SideDrawer from "./layout/SideDrawer";
 import Home from "./pages/HomePage";
@@ -21,6 +21,7 @@ import ViewAuctionDetails from "./pages/ViewAuctionDetails";
 import Dashboard from "./pages/super-admin/Dashboard";
 import ContactUsPage from "./pages/ContactUsPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import PrivateRoute from "./components/protected-routes/PrivateRoute";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -37,18 +38,20 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/submit-commission" element={<SubmitCommission />} />
+        <Route path="/leaderboard" element={<LeaderBoardPage />} />
         <Route path="/how-it-works-info" element={<HowItWorks />} />
         <Route path="/about" element={<About />} />
-        <Route path="/leaderboard" element={<LeaderBoardPage />} />
         <Route path="/auctions" element={<AuctionsPage />} />
-        <Route path="/auction/item/:id" element={<AuctionItemPage />} />
+        <Route path="/contact" element={<ContactUsPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/me" element={<UserProfilePage />} />
+          <Route path="/auction/item/:id" element={<AuctionItemPage />} />
+        </Route>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/submit-commission" element={<SubmitCommission />} />
         <Route path="/create-auction" element={<CreateAuctionPage />} />
         <Route path="/view-my-auctions" element={<ViewMyAuctionsPage />} />
         <Route path="/auction/details/:id" element={<ViewAuctionDetails />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/contact" element={<ContactUsPage />} />
-        <Route path="/me" element={<UserProfilePage />} />
       </Routes>
       <ToastContainer position="top-right" />
     </BrowserRouter>

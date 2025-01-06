@@ -9,13 +9,13 @@ import { IoMdCloseCircleOutline, IoIosCreate } from "react-icons/io";
 import { FaEye, FaUserCircle } from "react-icons/fa";
 import { SiGooglesearchconsole } from "react-icons/si";
 import { BsFillInfoSquareFill } from "react-icons/bs";
-import { logout } from "@/store/slices/userSlice";
+import { logout } from "@/store/slices/authSlice";
 import CustomLink from "@/components/CustomLink";
 import SidebarFooter from "@/components/SidebarFooter";
 
 const SideDrawer = () => {
   const [show, setShow] = useState(false);
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
