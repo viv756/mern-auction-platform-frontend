@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
 import { toast } from "react-toastify";
+import { axiosInstance } from "@/lib/axios";
 
 const authSlice = createSlice({
   name: "auth",
@@ -100,7 +100,7 @@ const authSlice = createSlice({
 export const register = (data) => async (dispatch) => {
   dispatch(authSlice.actions.registerRequest());
   try {
-    const response = await axios.post("http://localhost:5000/api/v1/user/register", data, {
+    const response = await axiosInstance.post("/user/register", data, {
       withCredentials: true,
       headers: { "Content-Type": "multipart/form-data" },
     });
@@ -118,7 +118,7 @@ export const register = (data) => async (dispatch) => {
 export const login = (data) => async (dispatch) => {
   dispatch(authSlice.actions.loginRequest());
   try {
-    const response = await axios.post("http://localhost:5000/api/v1/user/login", data, {
+    const response = await axiosInstance.post("/user/login", data, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     });
@@ -135,7 +135,7 @@ export const login = (data) => async (dispatch) => {
 // user logout functionality
 export const logout = () => async (dispatch) => {
   try {
-    const response = await axios.get("http://localhost:5000/api/v1/user/logout", {
+    const response = await axiosInstance.get("/user/logout", {
       withCredentials: true,
     });
     dispatch(authSlice.actions.logoutSuccess());
@@ -151,7 +151,7 @@ export const logout = () => async (dispatch) => {
 export const fetchUser = () => async (dispatch) => {
   dispatch(authSlice.actions.fetchUserRequest());
   try {
-    const response = await axios.get("http://localhost:5000/api/v1/user/me", {
+    const response = await axiosInstance.get("/user/me", {
       withCredentials: true,
     });
     dispatch(authSlice.actions.fetchUserSuccess(response.data));
@@ -166,7 +166,7 @@ export const fetchUser = () => async (dispatch) => {
 export const fetchLeaderboard = () => async (dispatch) => {
   dispatch(authSlice.actions.fetchLeaderboardRequest());
   try {
-    const response = await axios.get("http://localhost:5000/api/v1/user/leaderboard", {
+    const response = await axiosInstance.get("/user/leaderboard", {
       withCredentials: true,
     });
     dispatch(authSlice.actions.fetchLeaderboardSuccess(response.data.leaderboard));
