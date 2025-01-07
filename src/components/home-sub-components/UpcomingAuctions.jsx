@@ -35,10 +35,11 @@ const UpcomingAuctions = () => {
           </div>
         </div>
         {auctionsStartingToday.slice(0, 2).map((element) => (
-          <div className="flex flex-col gap-4 w-full lg:flex-1 2xl:flex-none 2xl:basis-64 2xl:flex-grow">
+          <div
+            className="flex flex-col gap-4 w-full lg:flex-1 2xl:flex-none 2xl:basis-64 2xl:flex-grow"
+            key={element._id}>
             <Link
               to={`/auction/item/${element._id}`}
-              key={element._id}
               className="w-full flex flex-col gap-4 bg-boxcolor p-2 rounded-md 2xl:gap-2 hover:shadow-md transition-all duration-300">
               <div className="flex items-center gap-2">
                 <img
@@ -60,10 +61,9 @@ const UpcomingAuctions = () => {
           </div>
         ))}
         {auctionsStartingToday.slice(2, 4).map((element) => (
-          <div className="flex flex-col gap-4 w-full 2xl:basis-64 2xl:flex-grow">
+          <div className="flex flex-col gap-4 w-full 2xl:basis-64 2xl:flex-grow" key={element._id}>
             <Link
               to={`/auction/item/${element._id}`}
-              key={element._id}
               className="w-full flex flex-col gap-4 bg-boxcolor p-2 rounded-md 2xl:gap-2 hover:shadow-md transition-all duration-300">
               <div className="flex items-center gap-2">
                 <img
@@ -85,10 +85,9 @@ const UpcomingAuctions = () => {
           </div>
         ))}
         {auctionsStartingToday.slice(4, 6).map((element) => (
-          <div className="flex flex-col gap-4 w-full 2xl:basis-64 2xl:flex-grow">
+          <div className="flex flex-col gap-4 w-full 2xl:basis-64 2xl:flex-grow" key={element._id}>
             <Link
               to={`/auction/item/${element._id}`}
-              key={element._id}
               className="w-full flex flex-col gap-4 bg-boxcolor p-2 rounded-md 2xl:gap-2 hover:shadow-md transition-all duration-300">
               <div className="flex items-center gap-2">
                 <img
