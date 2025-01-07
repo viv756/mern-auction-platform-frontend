@@ -23,6 +23,7 @@ import ContactUsPage from "./pages/ContactUsPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import PrivateRoute from "./components/protected-routes/PrivateRoute";
 import AuctioneerPrivateRoute from "./components/protected-routes/AuctioneerPrivateRoute";
+import AdminPrivateRoute from "./components/protected-routes/AdminPrivateRoute";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -53,7 +54,9 @@ const App = () => {
           <Route path="/create-auction" element={<CreateAuctionPage />} />
           <Route path="/view-my-auctions" element={<ViewMyAuctionsPage />} />
         </Route>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<AdminPrivateRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
         <Route path="/auction/details/:id" element={<ViewAuctionDetails />} />
       </Routes>
       <ToastContainer position="top-right" />

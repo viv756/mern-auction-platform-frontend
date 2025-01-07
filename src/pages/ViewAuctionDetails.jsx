@@ -30,11 +30,19 @@ const ViewAuctionDetails = () => {
             Home
           </Link>
           <FaGreaterThan className="text-stone-400" />
-          <Link
-            to={"/view-my-auctions"}
-            className="font-semibold transition-all duration-300 hover:text-primary">
-            My Auctions
-          </Link>
+          {user.role === "Auctioneer" ? (
+            <Link
+              to={"/view-my-auctions"}
+              className="font-semibold transition-all duration-300 hover:text-primary">
+              My Auctions
+            </Link>
+          ) : (
+            <Link
+              to={"/auctions"}
+              className="font-semibold transition-all duration-300 hover:text-primary">
+              Auctions
+            </Link>
+          )}
           <FaGreaterThan className="text-stone-400" />
           <p className="text-stone-600">{auctionDetail.title}</p>
         </div>
