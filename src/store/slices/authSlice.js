@@ -6,45 +6,47 @@ const authSlice = createSlice({
   name: "auth",
   initialState: {
     loading: false,
-    isAuthenticated: false,
-    user: null,
+    isAuthenticated: null,
+    user: {},
     leaderboard: [],
     successLogin: false,
+    successRegister: false,
   },
   reducers: {
     registerRequest(state, action) {
       state.loading = true;
-      state.isAuthenticated = false;
+      state.isAuthenticated = null;
       state.user = {};
     },
     registerSuccess(state, action) {
       state.loading = false;
-      state.isAuthenticated = true;
+      state.isAuthenticated = action.payload.isAuth;
+      state.successRegister = true;
       state.user = action.payload.user;
     },
     registerFailed(state, action) {
       state.loading = false;
-      state.isAuthenticated = false;
+      state.isAuthenticated = null;
       state.user = {};
     },
     loginRequest(state, action) {
       state.loading = true;
-      state.isAuthenticated = false;
+      state.isAuthenticated = null;
       state.user = {};
     },
     loginSuccess(state, action) {
       state.loading = false;
-      state.isAuthenticated = true;
+      state.isAuthenticated = action.payload.isAuth;
       state.successLogin = true;
       state.user = action.payload.user;
     },
     loginFailed(state, action) {
       state.loading = false;
-      state.isAuthenticated = false;
+      state.isAuthenticated = null;
       state.user = {};
     },
     logoutSuccess(state, action) {
-      state.isAuthenticated = false;
+      state.isAuthenticated = null;
       state.user = {};
     },
     logoutFailed(state, action) {
@@ -54,17 +56,17 @@ const authSlice = createSlice({
     },
     fetchUserRequest(state, action) {
       state.loading = true;
-      state.isAuthenticated = false;
+      state.isAuthenticated = state.isAuthenticated;
       state.user = {};
     },
     fetchUserSuccess(state, action) {
       state.loading = false;
-      state.isAuthenticated = true;
-      state.user = action.payload;
+      state.isAuthenticated = action.payload.isAuth;
+      state.user = action.payload.user;
     },
     fetchUserFailed(state, action) {
       state.loading = false;
-      state.isAuthenticated = false;
+      state.isAuthenticated = null;
       state.user = {};
     },
     fetchLeaderboardRequest(state, action) {
@@ -87,6 +89,9 @@ const authSlice = createSlice({
     },
     setLoginSuccesFalse(state, action) {
       state.successLogin = false;
+    },
+    setRegisterSuccessFalse(state, action) {
+      state.successRegister = false;
     },
   },
 });
@@ -149,7 +154,7 @@ export const fetchUser = () => async (dispatch) => {
     const response = await axios.get("http://localhost:5000/api/v1/user/me", {
       withCredentials: true,
     });
-    dispatch(authSlice.actions.fetchUserSuccess(response.data.user));
+    dispatch(authSlice.actions.fetchUserSuccess(response.data));
     dispatch(authSlice.actions.clearAllErrors());
   } catch (error) {
     dispatch(authSlice.actions.fetchUserFailed());
@@ -173,5 +178,5 @@ export const fetchLeaderboard = () => async (dispatch) => {
   }
 };
 
-export const { setLoginSuccesFalse } = authSlice.actions;
+export const { setLoginSuccesFalse, setRegisterSuccessFalse } = authSlice.actions;
 export default authSlice.reducer;

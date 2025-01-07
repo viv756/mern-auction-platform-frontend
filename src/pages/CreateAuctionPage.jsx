@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { auctionCategories } from "@/lib/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { createAuction } from "@/store/slices/auctionSlice";
-import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import H1 from "@/components/H1";
 import "react-datepicker/dist/react-datepicker.css";
@@ -20,14 +19,6 @@ const CreateAuctionPage = () => {
 
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.auction);
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
-
-  const navigateTo = useNavigate();
-  useEffect(() => {
-    if (!isAuthenticated || user.role !== "Auctioneer") {
-      navigateTo("/");
-    }
-  }, [isAuthenticated]);
 
   const imageHandler = (e) => {
     const file = e.target.files[0];

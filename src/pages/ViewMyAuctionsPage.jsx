@@ -8,17 +8,11 @@ import CardTwo from "@/components/CardTwo";
 
 const ViewMyAuctionsPage = () => {
   const { myAuctions, loading } = useSelector((state) => state.auction);
-  const { user, isAuthenticated } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
-  const navigateTo = useNavigate();
 
   useEffect(() => {
-    if (!isAuthenticated || user.role !== "Auctioneer") {
-      navigateTo("/");
-    }
     dispatch(getMyAuctionItems());
-  }, [dispatch, isAuthenticated]);
+  }, [dispatch]);
 
   return (
     <div className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col">

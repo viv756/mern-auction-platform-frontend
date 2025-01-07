@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { register, setRegisterSuccessFalse } from "@/store/slices/authSlice";
 import H1 from "@/components/H1";
-import { register } from "@/store/slices/authSlice";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -19,7 +19,7 @@ const SignUp = () => {
   const [profileImage, setProfileImage] = useState("");
   const [profileImagePreview, setProfileImagePreview] = useState("");
 
-  const { loading, isAuthenticated } = useSelector((state) => state.auth);
+  const { loading, successRegister } = useSelector((state) => state.auth);
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
 
@@ -43,10 +43,11 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (successRegister) {
       navigateTo("/");
+      dispatch(setRegisterSuccessFalse())
     }
-  }, [dispatch, loading, isAuthenticated]);
+  }, [dispatch, loading, successRegister]);
 
   const imageHandler = (e) => {
     const file = e.target.files[0];

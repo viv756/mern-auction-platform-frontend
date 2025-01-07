@@ -22,6 +22,7 @@ import Dashboard from "./pages/super-admin/Dashboard";
 import ContactUsPage from "./pages/ContactUsPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import PrivateRoute from "./components/protected-routes/PrivateRoute";
+import AuctioneerPrivateRoute from "./components/protected-routes/AuctioneerPrivateRoute";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -47,10 +48,12 @@ const App = () => {
           <Route path="/me" element={<UserProfilePage />} />
           <Route path="/auction/item/:id" element={<AuctionItemPage />} />
         </Route>
+        <Route element={<AuctioneerPrivateRoute />}>
+          <Route path="/submit-commission" element={<SubmitCommission />} />
+          <Route path="/create-auction" element={<CreateAuctionPage />} />
+          <Route path="/view-my-auctions" element={<ViewMyAuctionsPage />} />
+        </Route>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/submit-commission" element={<SubmitCommission />} />
-        <Route path="/create-auction" element={<CreateAuctionPage />} />
-        <Route path="/view-my-auctions" element={<ViewMyAuctionsPage />} />
         <Route path="/auction/details/:id" element={<ViewAuctionDetails />} />
       </Routes>
       <ToastContainer position="top-right" />
